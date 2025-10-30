@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diatom Image</title>
+    <title>Such a Cute Pup!</title>
     <style>
         body {
             margin: 0;
@@ -12,31 +12,115 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f5f5f5;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe5f5 25%, #ffd4ec 50%, #ffcce8 75%, #ffc4e4 100%);
+            font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
         }
+
+        /* Floating hearts animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(5deg); opacity: 1; }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.6));
+        }
+
+        .heart:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { top: 20%; right: 15%; animation-delay: 0.5s; }
+        .heart:nth-child(3) { bottom: 15%; left: 20%; animation-delay: 1s; }
+        .heart:nth-child(4) { bottom: 25%; right: 10%; animation-delay: 1.5s; }
+        .heart:nth-child(5) { top: 50%; left: 5%; animation-delay: 2s; }
+        .heart:nth-child(6) { top: 60%; right: 5%; animation-delay: 2.5s; }
+
         .container {
             text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            background: linear-gradient(145deg, #ffffff 0%, #fff5fb 100%);
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3),
+                        0 0 0 8px #ffb6c1,
+                        0 0 0 16px #ffc0cb;
+            position: relative;
+            z-index: 1;
+            border: 4px dashed #ff69b4;
         }
+
         h1 {
-            color: #333;
-            margin-bottom: 20px;
+            color: #ff1493;
+            margin-bottom: 30px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+            letter-spacing: 2px;
         }
+
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
         img {
-            max-width: 100%;
+            max-width: 500px;
+            width: 100%;
             height: auto;
-            border-radius: 4px;
+            border-radius: 25px;
+            border: 6px solid #ffb6c1;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 25px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .sparkle:nth-child(1) { top: -10px; left: -10px; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: -10px; right: -10px; animation-delay: 0.4s; }
+        .sparkle:nth-child(3) { bottom: -10px; left: -10px; animation-delay: 0.8s; }
+        .sparkle:nth-child(4) { bottom: -10px; right: -10px; animation-delay: 1.2s; }
+
+        .caption {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff69b4;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255, 182, 193, 0.5);
         }
     </style>
 </head>
 <body>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+    <div class="heart">💝</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+
     <div class="container">
-        <h1>Diatom</h1>
-        <img src="diatom.png" alt="Diatom microscopic image">
+        <h1>🐶 Adorable Pup! 🐶</h1>
+        <div class="image-wrapper">
+            <span class="sparkle">✨</span>
+            <span class="sparkle">✨</span>
+            <span class="sparkle">✨</span>
+            <span class="sparkle">✨</span>
+            <img src="download.jpg" alt="The cutest dog ever!">
+        </div>
+        <div class="caption">So Cute! 💕</div>
     </div>
 </body>
 </html>
