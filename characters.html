@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豪华客厅中的五位角色</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background: #1a1410;
+        }
+
+        .living-room {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(to bottom,
+                #2a1f1a 0%,
+                #1a1410 50%,
+                #0f0a08 100%);
+            overflow: hidden;
+        }
+
+        /* 豪华客厅背景元素 */
+        .background-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        /* 墙壁装饰 */
+        .wall-panel {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            border: 3px solid #8b7355;
+            background: linear-gradient(135deg, #3a2f28 0%, #2a1f1a 100%);
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .wall-panel:nth-child(1) { left: 5%; top: 10%; }
+        .wall-panel:nth-child(2) { right: 5%; top: 10%; }
+        .wall-panel:nth-child(3) { left: 15%; top: 50%; }
+        .wall-panel:nth-child(4) { right: 15%; top: 50%; }
+
+        /* 吊灯光效 */
+        .chandelier-light {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle,
+                rgba(255, 223, 186, 0.2) 0%,
+                rgba(139, 115, 85, 0.1) 30%,
+                transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        /* 地板反射 */
+        .floor-reflection {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top,
+                rgba(0, 0, 0, 0.8) 0%,
+                transparent 100%);
+        }
+
+        /* 角色容器 */
+        .characters-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            padding: 50px;
+            z-index: 10;
+        }
+
+        .character {
+            position: relative;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .character:nth-child(1) { animation-delay: 0s; }
+        .character:nth-child(2) { animation-delay: 1.2s; }
+        .character:nth-child(3) { animation-delay: 2.4s; }
+        .character:nth-child(4) { animation-delay: 3.6s; }
+        .character:nth-child(5) { animation-delay: 4.8s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* 标题 */
+        .title {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #d4c5b0;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(212, 197, 176, 0.5);
+            z-index: 100;
+            text-align: center;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .characters-container {
+                gap: 30px;
+                padding: 30px;
+            }
+            .character svg {
+                width: 150px !important;
+                height: 200px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .characters-container {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .character svg {
+                width: 120px !important;
+                height: 160px !important;
+            }
+            .title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="living-room">
+        <!-- 背景装饰元素 -->
+        <div class="background-elements">
+            <div class="wall-panel"></div>
+            <div class="wall-panel"></div>
+            <div class="wall-panel"></div>
+            <div class="wall-panel"></div>
+        </div>
+
+        <div class="chandelier-light"></div>
+        <div class="floor-reflection"></div>
+
+        <!-- 标题 -->
+        <h1 class="title">豪华客厅中的优雅聚会</h1>
+
+        <!-- 五个角色 -->
+        <div class="characters-container">
+            <!-- 角色1: 优雅女士 -->
+            <div class="character">
+                <svg width="180" height="240" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 头部 -->
+                    <ellipse cx="90" cy="50" rx="35" ry="40" fill="#f5f5f5"/>
+                    <!-- 发型 -->
+                    <path d="M55 45 Q55 20 90 20 Q125 20 125 45 L125 55 Q125 35 90 35 Q55 35 55 55 Z" fill="#1a1a1a"/>
+                    <!-- 眼睛 -->
+                    <path d="M70 48 Q75 45 80 48" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M100 48 Q105 45 110 48" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <!-- 睫毛 -->
+                    <line x1="68" y1="46" x2="65" y2="43" stroke="#1a1a1a" stroke-width="2"/>
+                    <line x1="82" y1="46" x2="85" y2="43" stroke="#1a1a1a" stroke-width="2"/>
+                    <line x1="98" y1="46" x2="95" y2="43" stroke="#1a1a1a" stroke-width="2"/>
+                    <line x1="112" y1="46" x2="115" y2="43" stroke="#1a1a1a" stroke-width="2"/>
+                    <!-- 嘴唇 -->
+                    <path d="M75 65 Q90 70 105 65" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    <!-- 耳环 -->
+                    <circle cx="55" cy="60" r="4" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+                    <circle cx="125" cy="60" r="4" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+                    <!-- 脖子 -->
+                    <rect x="80" y="85" width="20" height="15" fill="#f5f5f5"/>
+                    <!-- 项链 -->
+                    <path d="M75 100 Q90 105 105 100" stroke="#1a1a1a" stroke-width="2" fill="none"/>
+                    <circle cx="90" cy="106" r="3" fill="#1a1a1a"/>
+                    <!-- 晚礼服 -->
+                    <path d="M50 100 L60 180 L60 220 L75 220 L75 180 L90 110 L105 180 L105 220 L120 220 L120 180 L130 100 Z" fill="#1a1a1a"/>
+                    <!-- 肩带 -->
+                    <line x1="60" y1="100" x2="75" y2="90" stroke="#1a1a1a" stroke-width="4"/>
+                    <line x1="120" y1="100" x2="105" y2="90" stroke="#1a1a1a" stroke-width="4"/>
+                    <!-- 手臂 -->
+                    <path d="M50 110 L35 160 L40 165 L55 115 Z" fill="#f5f5f5"/>
+                    <path d="M130 110 L145 160 L140 165 L125 115 Z" fill="#f5f5f5"/>
+                    <!-- 手 -->
+                    <ellipse cx="37" cy="168" rx="8" ry="10" fill="#f5f5f5"/>
+                    <ellipse cx="143" cy="168" rx="8" ry="10" fill="#f5f5f5"/>
+                </svg>
+            </div>
+
+            <!-- 角色2: 戴礼帽的绅士 -->
+            <div class="character">
+                <svg width="180" height="240" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 礼帽 -->
+                    <rect x="60" y="15" width="60" height="35" rx="5" fill="#1a1a1a"/>
+                    <ellipse cx="90" cy="50" rx="40" ry="8" fill="#1a1a1a"/>
+                    <rect x="65" y="48" width="50" height="4" fill="#2a2a2a"/>
+                    <!-- 头部 -->
+                    <ellipse cx="90" cy="70" rx="32" ry="35" fill="#f5f5f5"/>
+                    <!-- 眉毛 -->
+                    <path d="M70 65 L82 63" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M98 63 L110 65" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+                    <!-- 眼睛 -->
+                    <circle cx="75" cy="72" r="2.5" fill="#1a1a1a"/>
+                    <circle cx="105" cy="72" r="2.5" fill="#1a1a1a"/>
+                    <!-- 单片眼镜 -->
+                    <circle cx="105" cy="72" r="8" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+                    <!-- 胡子 -->
+                    <path d="M70 85 Q75 88 80 85 M100 85 Q105 88 110 85" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    <path d="M85 90 L85 95 L82 98 L88 98 L85 95" fill="#1a1a1a"/>
+                    <!-- 脖子和领结 -->
+                    <rect x="82" y="100" width="16" height="12" fill="#f5f5f5"/>
+                    <path d="M70 115 L80 110 L90 115 L100 110 L110 115 L90 125 Z" fill="#1a1a1a"/>
+                    <!-- 西装 -->
+                    <path d="M55 120 L50 220 L70 220 L75 150 L90 130 L105 150 L110 220 L130 220 L125 120 L90 115 Z" fill="#1a1a1a"/>
+                    <line x1="90" y1="130" x2="90" y2="220" stroke="#2a2a2a" stroke-width="2"/>
+                    <!-- 口袋巾 -->
+                    <path d="M100 135 L105 135 L107 145 L98 145 Z" fill="#f5f5f5"/>
+                    <!-- 手臂 -->
+                    <path d="M55 125 L30 190 Q28 195 32 198 L60 135 Z" fill="#1a1a1a"/>
+                    <path d="M125 125 L150 190 Q152 195 148 198 L120 135 Z" fill="#1a1a1a"/>
+                    <!-- 手和手杖 -->
+                    <ellipse cx="32" cy="200" rx="7" ry="9" fill="#f5f5f5"/>
+                    <rect x="30" y="200" width="4" height="40" fill="#8b4513"/>
+                    <circle cx="32" cy="198" r="6" fill="#d4af37"/>
+                </svg>
+            </div>
+
+            <!-- 角色3: 抽雪茄的商人 -->
+            <div class="character">
+                <svg width="180" height="240" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 头部 -->
+                    <ellipse cx="90" cy="55" rx="38" ry="42" fill="#f5f5f5"/>
+                    <!-- 发型 -->
+                    <path d="M52 50 Q52 20 90 18 Q128 20 128 50 Q128 45 90 43 Q52 45 52 50" fill="#1a1a1a"/>
+                    <!-- 发际线 -->
+                    <path d="M60 38 Q90 35 120 38" stroke="#1a1a1a" stroke-width="2" fill="none"/>
+                    <!-- 眼睛 -->
+                    <path d="M68 55 Q73 52 78 55" stroke="#1a1a1a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                    <path d="M102 55 Q107 52 112 55" stroke="#1a1a1a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                    <!-- 眉毛 -->
+                    <path d="M65 48 Q73 45 80 47" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M100 47 Q107 45 115 48" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <!-- 鼻子 -->
+                    <path d="M90 60 L85 72 Q87 74 90 74 Q93 74 95 72 Z" fill="#e5e5e5"/>
+                    <!-- 雪茄 -->
+                    <rect x="95" y="78" width="35" height="6" rx="3" fill="#8b4513"/>
+                    <rect x="126" y="79" width="4" height="4" fill="#ff6347"/>
+                    <path d="M130 81 L135 79 L137 81 L135 83 Z" fill="#ff6347" opacity="0.6"/>
+                    <!-- 脖子 -->
+                    <rect x="78" y="92" width="24" height="18" fill="#f5f5f5"/>
+                    <!-- 领带 -->
+                    <path d="M85 110 L78 115 L90 160 L102 115 L95 110 L90 113 Z" fill="#8b0000"/>
+                    <rect x="82" y="108" width="16" height="6" fill="#f5f5f5"/>
+                    <!-- 西装 -->
+                    <path d="M45 115 L40 220 L65 220 L70 150 L90 125 L110 150 L115 220 L140 220 L135 115 L90 108 Z" fill="#1a1a1a"/>
+                    <!-- 领口 -->
+                    <path d="M78 110 L65 125 L90 125" fill="#f5f5f5"/>
+                    <path d="M102 110 L115 125 L90 125" fill="#f5f5f5"/>
+                    <!-- 纽扣 -->
+                    <circle cx="90" cy="145" r="3" fill="#2a2a2a"/>
+                    <circle cx="90" cy="170" r="3" fill="#2a2a2a"/>
+                    <circle cx="90" cy="195" r="3" fill="#2a2a2a"/>
+                    <!-- 手臂 -->
+                    <path d="M45 120 L25 180 L30 185 L50 125 Z" fill="#1a1a1a"/>
+                    <ellipse cx="27" cy="183" rx="8" ry="10" fill="#f5f5f5"/>
+                    <!-- 右手拿雪茄 -->
+                    <path d="M135 120 L155 165 L150 170 L130 125 Z" fill="#1a1a1a"/>
+                    <path d="M150 170 Q148 172 150 175 L156 173 Q158 170 156 168 Z" fill="#f5f5f5"/>
+                </svg>
+            </div>
+
+            <!-- 角色4: 端酒杯的女士 -->
+            <div class="character">
+                <svg width="180" height="240" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 头部 -->
+                    <ellipse cx="90" cy="48" rx="33" ry="38" fill="#f5f5f5"/>
+                    <!-- 发型 - 优雅的盘发 -->
+                    <ellipse cx="90" cy="30" rx="38" ry="25" fill="#1a1a1a"/>
+                    <circle cx="90" cy="25" r="12" fill="#1a1a1a"/>
+                    <path d="M55 40 Q55 50 65 55 L65 45 Z" fill="#1a1a1a"/>
+                    <path d="M125 40 Q125 50 115 55 L115 45 Z" fill="#1a1a1a"/>
+                    <!-- 耳朵 -->
+                    <ellipse cx="57" cy="50" rx="5" ry="8" fill="#f5f5f5"/>
+                    <ellipse cx="123" cy="50" rx="5" ry="8" fill="#f5f5f5"/>
+                    <!-- 眼睛 -->
+                    <path d="M72 48 Q77 45 82 48" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M98 48 Q103 45 108 48" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <!-- 眼影 -->
+                    <path d="M72 45 Q77 43 82 45" stroke="#1a1a1a" stroke-width="1.5" opacity="0.3" stroke-linecap="round" fill="none"/>
+                    <path d="M98 45 Q103 43 108 45" stroke="#1a1a1a" stroke-width="1.5" opacity="0.3" stroke-linecap="round" fill="none"/>
+                    <!-- 嘴唇 -->
+                    <path d="M78 66 Q90 70 102 66" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    <path d="M78 66 Q90 68 102 66" fill="#1a1a1a" opacity="0.2"/>
+                    <!-- 珍珠耳环 -->
+                    <circle cx="57" cy="58" r="5" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="1"/>
+                    <circle cx="123" cy="58" r="5" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="1"/>
+                    <!-- 脖子 -->
+                    <rect x="81" y="82" width="18" height="18" fill="#f5f5f5"/>
+                    <!-- 珍珠项链 -->
+                    <circle cx="75" cy="100" r="3" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <circle cx="82" cy="98" r="3" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <circle cx="90" cy="97" r="3" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <circle cx="98" cy="98" r="3" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <circle cx="105" cy="100" r="3" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <!-- 连衣裙 -->
+                    <path d="M55 105 L48 220 L68 220 L72 160 L90 120 L108 160 L112 220 L132 220 L125 105 L90 100 Z" fill="#1a1a1a"/>
+                    <!-- 裙子装饰 -->
+                    <path d="M55 105 L60 108 L90 115 L120 108 L125 105" stroke="#2a2a2a" stroke-width="1.5" fill="none"/>
+                    <!-- 腰带 -->
+                    <ellipse cx="90" cy="135" rx="25" ry="4" fill="#2a2a2a"/>
+                    <!-- 左臂 -->
+                    <path d="M55 110 L42 170 L47 173 L60 115 Z" fill="#f5f5f5"/>
+                    <ellipse cx="44" cy="172" rx="7" ry="9" fill="#f5f5f5"/>
+                    <!-- 右臂拿酒杯 -->
+                    <path d="M125 110 L145 155 L140 158 L120 115 Z" fill="#f5f5f5"/>
+                    <ellipse cx="143" cy="157" rx="7" ry="9" fill="#f5f5f5"/>
+                    <!-- 酒杯 -->
+                    <line x1="148" y1="157" x2="148" y2="175" stroke="#1a1a1a" stroke-width="1.5"/>
+                    <ellipse cx="148" cy="176" rx="3" ry="1.5" fill="#1a1a1a"/>
+                    <path d="M142 150 L142 157 L154 157 L154 150 Z" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+                    <path d="M142 150 Q148 147 154 150" fill="rgba(139, 0, 0, 0.3)" stroke="#1a1a1a" stroke-width="1"/>
+                </svg>
+            </div>
+
+            <!-- 角色5: 拿手杖的老绅士 -->
+            <div class="character">
+                <svg width="180" height="240" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 头部 -->
+                    <ellipse cx="90" cy="52" rx="36" ry="40" fill="#f5f5f5"/>
+                    <!-- 头发 - 两侧有些斑白 -->
+                    <path d="M54 48 Q54 22 90 20 Q126 22 126 48" fill="#4a4a4a"/>
+                    <path d="M54 45 Q58 35 65 32" stroke="#d3d3d3" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    <path d="M126 45 Q122 35 115 32" stroke="#d3d3d3" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    <!-- 秃顶 -->
+                    <ellipse cx="90" cy="28" rx="28" ry="15" fill="#f5f5f5"/>
+                    <path d="M62 28 Q90 23 118 28" stroke="#e5e5e5" stroke-width="1" fill="none"/>
+                    <!-- 眉毛 - 浓密 -->
+                    <path d="M68 48 Q75 44 82 46" stroke="#4a4a4a" stroke-width="4" stroke-linecap="round" fill="none"/>
+                    <path d="M98 46 Q105 44 112 48" stroke="#4a4a4a" stroke-width="4" stroke-linecap="round" fill="none"/>
+                    <!-- 眼睛 - 有些下垂 -->
+                    <path d="M70 56 Q75 54 80 56" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M100 56 Q105 54 110 56" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <circle cx="75" cy="56" r="1.5" fill="#1a1a1a"/>
+                    <circle cx="105" cy="56" r="1.5" fill="#1a1a1a"/>
+                    <!-- 眼袋 -->
+                    <path d="M70 58 Q75 60 80 58" stroke="#d3d3d3" stroke-width="1" fill="none" opacity="0.5"/>
+                    <path d="M100 58 Q105 60 110 58" stroke="#d3d3d3" stroke-width="1" fill="none" opacity="0.5"/>
+                    <!-- 鼻子 - 突出 -->
+                    <path d="M90 58 L88 70 Q88 73 90 74 Q92 73 92 70 L90 58" fill="#e5e5e5"/>
+                    <!-- 白胡子 -->
+                    <path d="M70 78 Q75 82 80 80 L82 85 Q80 88 75 87 Q70 86 68 82 Z" fill="#d3d3d3"/>
+                    <path d="M110 78 Q105 82 100 80 L98 85 Q100 88 105 87 Q110 86 112 82 Z" fill="#d3d3d3"/>
+                    <path d="M82 84 Q90 88 98 84 L98 92 Q95 95 90 95 Q85 95 82 92 Z" fill="#d3d3d3"/>
+                    <!-- 脖子 -->
+                    <rect x="80" y="88" width="20" height="20" fill="#f5f5f5"/>
+                    <!-- 领结 -->
+                    <path d="M72 110 L82 105 L90 110 L98 105 L108 110 L90 120 Z" fill="#8b0000"/>
+                    <!-- 西装背心 -->
+                    <path d="M58 115 L55 160 L75 160 L78 135 L90 125 L102 135 L105 160 L125 160 L122 115 L90 108 Z" fill="#2a2a2a"/>
+                    <path d="M90 125 L90 160" stroke="#1a1a1a" stroke-width="2"/>
+                    <!-- 纽扣 -->
+                    <circle cx="90" cy="132" r="2.5" fill="#d4af37"/>
+                    <circle cx="90" cy="145" r="2.5" fill="#d4af37"/>
+                    <!-- 怀表链 -->
+                    <path d="M102 138 Q108 140 108 148" stroke="#d4af37" stroke-width="1.5" fill="none"/>
+                    <circle cx="108" cy="150" r="4" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                    <!-- 外套 -->
+                    <path d="M55 160 L50 220 L70 220 L75 170 L90 160 L105 170 L110 220 L130 220 L125 160" fill="#1a1a1a"/>
+                    <!-- 手臂 -->
+                    <path d="M58 120 L35 185 L40 190 L63 125 Z" fill="#1a1a1a"/>
+                    <ellipse cx="37" cy="188" rx="8" ry="10" fill="#f5f5f5"/>
+                    <!-- 右手和手杖 -->
+                    <path d="M122 120 L142 200 L137 203 L117 125 Z" fill="#1a1a1a"/>
+                    <ellipse cx="140" cy="202" rx="8" ry="10" fill="#f5f5f5"/>
+                    <rect x="138" y="202" width="3" height="35" rx="1.5" fill="#5a3a1a"/>
+                    <circle cx="139" cy="200" r="5" fill="#d4af37"/>
+                    <path d="M134 200 Q134 195 139 195" stroke="#d4af37" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
